@@ -15,6 +15,24 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        Backspace {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <16 17>;
+        };
+    };
+
+    macros {
+        aleft: aleft {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(H) &kp G &kp A &kp L>;
+            label = "ALEFT";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -61,12 +79,5 @@
         extra3 { status = "reserved"; };
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        device {
-            if-layers = <1 2>;
-            then-layer = <3>;
-        };
-    };
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 };
