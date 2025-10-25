@@ -145,6 +145,20 @@
             bindings = <&kp LC(END) &kp HOME>;
             label = "BOTTOMOFCOL";
         };
+
+        PSA: PSA {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp LS(P) &kp L &kp E &kp A &kp S &kp E &kp SPACE &kp S &kp E &kp E &kp SPACE &kp A &kp T &kp T &kp A &kp C &kp H &kp E &kp D &kp SPACE &kp F &kp O &kp R &kp SPACE &kp T &kp H &kp E &kp SPACE>;
+            label = "PSA";
+        };
+
+        PSB: PSB {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp LS(P) &kp L &kp E &kp A &kp S &kp E &kp SPACE &kp S &kp E &kp E &kp SPACE &kp B &kp E &kp L &kp O &kp W &kp SPACE &kp F &kp O &kp R &kp SPACE &kp T &kp H &kp E &kp SPACE>;
+            label = "PSB";
+        };
     };
 
     keymap {
@@ -161,7 +175,7 @@
 
         nav_num {
             bindings = <
-              &none         &none         &kp TAB           &kp F5          &kp F4       &none      &kp PG_UP  &kp UP_ARROW     &kp PG_DN        &none
+              &none         &none         &kp TAB           &kp F5          &kp F4       &kp F9     &kp PG_UP  &kp UP_ARROW     &kp PG_DN        &none
               &sk LEFT_WIN  &sk LEFT_ALT  &sk LEFT_CONTROL  &sk LEFT_SHIFT  &kp F2       &kp K_APP  &kp LEFT   &kp DOWN         &kp RIGHT_ARROW  &none
 &kp LEFT_WIN  &none         &kp LC(X)     &kp LC(C)         &kp LC(V)       &none        &LineDel   &kp HOME   &none            &kp END          &BottomofCol  &kp ESC
                                           &kp LEFT_WIN      &trans          &kp SPACE    &kp ENTER  &sl 3      &sk RIGHT_SHIFT
@@ -170,27 +184,27 @@
 
         sym_func {
             bindings = <
-              &kp ESC    &kp N7  &kp N8    &kp N9  &none       &kp DOUBLE_QUOTES  &kp SQT    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp SLASH
-              &sk LSHFT  &kp N4  &kp N5    &kp N6  &kp LALT    &kp MINUS          &kp EQUAL  &kp LBKT              &kp RBKT               &kp BSLH
-&kp LEFT_WIN  &sk LCTRL  &kp N1  &kp N2    &kp N3  &kp N0      &kp UNDERSCORE     &kp PLUS   &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE   &kp TILDE
-                                 &kp LALT  &trans  &trans      &trans             &trans     &sk LEFT_SHIFT
+              &kp LEFT_ALT  &kp N7  &kp N8    &kp N9  &none       &kp DOUBLE_QUOTES  &kp SQT    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp SLASH
+              &sk LSHFT     &kp N4  &kp N5    &kp N6  &kp LALT    &kp MINUS          &kp EQUAL  &kp LBKT              &kp RBKT               &kp BSLH
+&kp LEFT_WIN  &sk LCTRL     &kp N1  &kp N2    &kp N3  &kp N0      &kp UNDERSCORE     &kp PLUS   &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE   &kp TILDE
+                                    &kp LALT  &trans  &trans      &trans             &trans     &sk LEFT_SHIFT
             >;
         };
 
         device {
             bindings = <
-        &trans     &kp F7  &kp F8    &kp F9  &trans    &trans  &kp F16  &kp F17  &kp F18  &trans
-        &kp LCTRL  &kp F4  &kp F5    &kp F6  &trans    &trans  &kp F13  &kp F14  &kp F15  &trans
-&trans  &kp LSHFT  &trans  &kp F2    &kp F3  &trans    &trans  &kp F10  &kp F11  &kp F12  &trans  &trans
-                           &kp LALT  &trans  &trans    &trans  &trans   &trans
+        &trans     &kp F7  &kp F8    &kp F9  &trans    &kp F20  &kp F21  &kp F22  &kp F23  &kp F24
+        &sk LCTRL  &kp F4  &kp F5    &kp F6  &trans    &kp F15  &kp F16  &kp F17  &kp F18  &kp F19
+&trans  &sk LSHFT  &trans  &kp F2    &kp F3  &trans    &kp F10  &kp F11  &kp F12  &kp F13  &kp F14  &trans
+                           &kp LALT  &trans  &trans    &trans   &trans   &trans
             >;
         };
 
         extra {
             bindings = <
         &trans     &kp F7  &kp F8    &kp F9  &trans    &trans  &kp F16  &kp F17  &kp F18  &trans
-        &kp LCTRL  &kp F4  &kp F5    &kp F6  &trans    &trans  &kp F13  &kp F14  &kp F15  &trans
-&trans  &kp LSHFT  &trans  &kp F2    &kp F3  &trans    &trans  &kp F10  &kp F11  &kp F12  &trans  &trans
+        &sk LCTRL  &kp F4  &kp F5    &kp F6  &trans    &trans  &kp F13  &kp F14  &kp F15  &trans
+&trans  &sk LSHFT  &trans  &kp F2    &kp F3  &trans    &trans  &kp F10  &kp F11  &kp F12  &trans  &trans
                            &kp LALT  &trans  &trans    &trans  &trans   &trans
             >;
         };
@@ -206,10 +220,10 @@
 
         extra3 {
             bindings = <
-       &none  &none  &none  &none  &none       &none  &none  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2
-       &none  &none  &none  &none  &none       &none  &none  &kp C_VOL_DN   &kp C_VOL_UP   &kp C_MUTE
-&none  &none  &none  &none  &none  &none       &PW    &none  &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_CLR_ALL
-                     &none  &none  &kp LALT    &none  &none  &none
+       &none  &none  &none  &none  &none     &PSA   &none  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2
+       &none  &none  &none  &none  &none     &PSB   &none  &kp C_VOL_DN   &kp C_VOL_UP   &kp C_MUTE
+&none  &none  &none  &none  &none  &none     &PW    &none  &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_CLR_ALL
+                     &none  &none  &trans    &none  &none  &none
             >;
         };
     };
