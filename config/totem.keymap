@@ -52,6 +52,16 @@
             bindings = <&mo 5>;
             key-positions = <34 33>;
         };
+
+        vertbackspace {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <16 27>;
+        };
+
+        vertdelete {
+            bindings = <&kp DELETE>;
+            key-positions = <17 28>;
+        };
     };
 
     macros {
