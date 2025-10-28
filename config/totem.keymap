@@ -79,6 +79,11 @@
             key-positions = <12 13>;
             layers = <5>;
         };
+
+        gamingmacro {
+            bindings = <&tog 7>;
+            key-positions = <31 5>;
+        };
     };
 
     macros {
@@ -251,6 +256,15 @@
        &none  &none  &none  &none  &none     &PSB   &none  &kp C_VOL_DN   &kp C_VOL_UP   &kp C_MUTE
 &none  &none  &none  &none  &none  &none     &PW    &none  &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_CLR_ALL
                      &none  &none  &trans    &none  &none  &none
+            >;
+        };
+
+        gaming {
+            bindings = <
+       &kp TAB    &kp Q  &kp W   &kp E   &kp T        &trans  &trans  &trans  &trans  &trans
+       &kp RSHFT  &kp A  &kp S   &kp D   &kp G        &trans  &trans  &trans  &trans  &trans
+&kp R  &trans     &kp X  &kp C   &kp V   &kp B        &kp F2  &kp F4  &kp F5  &kp F3  &trans  &trans
+                         &trans  &trans  &kp SPACE    &trans  &trans  &trans
             >;
         };
     };
