@@ -79,11 +79,6 @@
             key-positions = <12 13>;
             layers = <5>;
         };
-
-        gamingmacro {
-            bindings = <&tog 7>;
-            key-positions = <31 5>;
-        };
     };
 
     macros {
@@ -191,6 +186,13 @@
             bindings = <&none &kp LS(P) &kp L &kp E &kp A &kp S &kp E &kp SPACE &kp S &kp E &kp E &kp SPACE &kp B &kp E &kp L &kp O &kp W &kp SPACE &kp F &kp O &kp R &kp SPACE &kp T &kp H &kp E &kp SPACE>;
             label = "PSB";
         };
+
+        tablefilter: tablefilter {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(DOWN) &kp E>;
+            label = "TABLEFILTER";
+        };
     };
 
     keymap {
@@ -198,17 +200,17 @@
 
         base {
             bindings = <
-                &kp Q  &kp W  &kp E         &kp R  &kp T        &kp Y            &kp U  &kp I            &kp O    &kp P
-                &kp A  &kp S  &kp D         &kp F  &kp G        &kp H            &kp J  &kp K            &kp L    &kp SEMI
-&kp LEFT_SHIFT  &kp Z  &kp X  &kp C         &kp V  &kp B        &kp N            &kp M  &kp COMMA        &kp DOT  &kp FSLH  &kp ESC
-                              &kp LEFT_ALT  &mo 1  &kp SPACE    &mt LCTRL ENTER  &mo 2  &sk RIGHT_SHIFT
+           &kp Q  &kp W  &kp E         &kp R  &kp T        &kp Y            &kp U  &kp I            &kp O    &kp P
+           &kp A  &kp S  &kp D         &kp F  &kp G        &kp H            &kp J  &kp K            &kp L    &kp SEMI
+&kp LCTRL  &kp Z  &kp X  &kp C         &kp V  &kp B        &kp N            &kp M  &kp COMMA        &kp DOT  &kp FSLH  &kp ESC
+                         &kp LEFT_ALT  &mo 1  &kp SPACE    &mt LCTRL ENTER  &mo 2  &sk RIGHT_SHIFT
             >;
         };
 
         nav_num {
             bindings = <
               &none         &none         &kp TAB           &kp F5          &kp F4       &kp F9     &kp PG_UP  &kp UP_ARROW     &kp PG_DN        &none
-              &sk LEFT_WIN  &sk LEFT_ALT  &sk LEFT_CONTROL  &sk LEFT_SHIFT  &kp F2       &kp K_APP  &kp LEFT   &kp DOWN         &kp RIGHT_ARROW  &none
+              &sk LEFT_WIN  &sk LEFT_ALT  &sk LEFT_CONTROL  &sk LEFT_SHIFT  &kp F2       &kp K_APP  &kp LEFT   &kp DOWN         &kp RIGHT_ARROW  &tablefilter
 &kp LEFT_WIN  &kp LC(Z)     &kp LC(X)     &kp LC(C)         &kp LC(V)       &none        &LineDel   &kp HOME   &none            &kp END          &BottomofCol  &kp ESC
                                           &kp LEFT_WIN      &trans          &kp SPACE    &kp ENTER  &sl 3      &sk RIGHT_SHIFT
             >;
@@ -225,10 +227,10 @@
 
         device {
             bindings = <
-        &trans     &kp F7  &kp F8    &kp F9  &trans    &kp F20  &kp F21  &kp F22  &kp F23  &kp F24
-        &sk LCTRL  &kp F4  &kp F5    &kp F6  &trans    &kp F15  &kp F16  &kp F17  &kp F18  &kp F19
-&trans  &sk LSHFT  &trans  &kp F2    &kp F3  &trans    &kp F10  &kp F11  &kp F12  &kp F13  &kp F14  &trans
-                           &kp LALT  &trans  &trans    &trans   &trans   &trans
+        &sk LEFT_ALT  &kp F7  &kp F8    &kp F9  &trans    &kp F20  &kp F21  &kp F22  &kp F23  &kp F24
+        &sk LCTRL     &kp F4  &kp F5    &kp F6  &trans    &kp F15  &kp F16  &kp F17  &kp F18  &kp F19
+&trans  &sk LSHFT     &trans  &kp F2    &kp F3  &trans    &kp F10  &kp F11  &kp F12  &kp F13  &kp F14  &trans
+                              &kp LALT  &trans  &trans    &trans   &trans   &trans
             >;
         };
 
@@ -256,15 +258,6 @@
        &none  &none  &none  &none  &none     &PSB   &none  &kp C_VOL_DN   &kp C_VOL_UP   &kp C_MUTE
 &none  &none  &none  &none  &none  &none     &PW    &none  &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_CLR_ALL
                      &none  &none  &trans    &none  &none  &none
-            >;
-        };
-
-        gaming {
-            bindings = <
-       &kp TAB    &kp Q  &kp W   &kp E   &kp T        &trans  &trans  &trans  &trans  &trans
-       &kp RSHFT  &kp A  &kp S   &kp D   &kp G        &trans  &trans  &trans  &trans  &trans
-&kp R  &trans     &kp X  &kp C   &kp V   &kp B        &kp F2  &kp F4  &kp F5  &kp F3  &trans  &trans
-                         &trans  &trans  &kp SPACE    &trans  &trans  &trans
             >;
         };
     };
