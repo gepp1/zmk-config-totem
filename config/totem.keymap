@@ -39,7 +39,7 @@
         };
 
         btcon {
-            bindings = <&mo 6>;
+            bindings = <&mo 5>;
             key-positions = <4 20>;
         };
 
@@ -49,7 +49,7 @@
         };
 
         layer5 {
-            bindings = <&mo 5>;
+            bindings = <&mo 4>;
             key-positions = <34 33>;
         };
 
@@ -71,13 +71,13 @@
         leftdelete {
             bindings = <&kp DELETE>;
             key-positions = <23 24>;
-            layers = <2 3 4 5 6>;
+            layers = <2 3 4 5>;
         };
 
         leftbackspace {
             bindings = <&kp BACKSPACE>;
             key-positions = <12 13>;
-            layers = <5>;
+            layers = <4>;
         };
     };
 
@@ -193,6 +193,13 @@
             bindings = <&kp LA(DOWN) &kp E>;
             label = "TABLEFILTER";
         };
+
+        MailTo: MailTo {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&sk LEFT_WIN &kp R &kp M &kp A &kp I &kp L &kp T &kp O &kp COLON &kp ENTER>;
+            label = "MAILTO";
+        };
     };
 
     keymap {
@@ -234,15 +241,6 @@
             >;
         };
 
-        extra {
-            bindings = <
-        &trans     &kp F7  &kp F8    &kp F9  &trans    &trans  &kp F16  &kp F17  &kp F18  &trans
-        &sk LCTRL  &kp F4  &kp F5    &kp F6  &trans    &trans  &kp F13  &kp F14  &kp F15  &trans
-&trans  &sk LSHFT  &trans  &kp F2    &kp F3  &trans    &trans  &kp F10  &kp F11  &kp F12  &trans  &trans
-                           &kp LALT  &trans  &trans    &trans  &trans   &trans
-            >;
-        };
-
         extra2 {
             bindings = <
              &trsimage       &aleft    &kp UP_ARROW    &aright    &trans       &trans  &trans  &trans  &trans  &trans
@@ -254,10 +252,10 @@
 
         extra3 {
             bindings = <
-       &none  &none  &none  &none  &none     &PSA   &none  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2
-       &none  &none  &none  &none  &none     &PSB   &none  &kp C_VOL_DN   &kp C_VOL_UP   &kp C_MUTE
-&none  &none  &none  &none  &none  &none     &PW    &none  &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_CLR_ALL
-                     &none  &none  &trans    &none  &none  &none
+       &none  &none  &none  &none  &none     &PSA   &bt BT_SEL 3  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2
+       &none  &none  &none  &none  &none     &PSB   &none         &kp C_VOL_DN   &kp C_VOL_UP   &kp C_MUTE
+&none  &none  &none  &none  &none  &none     &PW    &MailTo       &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_CLR_ALL
+                     &none  &none  &trans    &none  &none         &none
             >;
         };
     };
