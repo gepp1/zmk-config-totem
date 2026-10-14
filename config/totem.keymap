@@ -82,7 +82,7 @@
         };
 
         SuperKey {
-            bindings = <&kp LA(LC(LG(LEFT_SHIFT)))>;
+            bindings = <&kp LA(LC(LEFT_SHIFT))>;
             key-positions = <0 4>;
         };
     };
